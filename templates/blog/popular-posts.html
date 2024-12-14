@@ -1,0 +1,19 @@
+{% load static %}
+{% load humanize %} 
+
+<div class="widget">
+    <h2 class="widget-title">Popular Posts</h2>
+    <div class="blog-list-widget">
+        <div class="list-group">
+            {% for post in posts %}
+            <a href="{% url 'blog:single' post_id=post.id %}" class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="w-100 justify-content-between">
+                    <img src="{% static 'upload/tech_blog_08.jpg' %}" alt="" class="img-fluid float-left">
+                    <h5 class="mb-1">{{post.title}}</h5>
+                    <small>{{post.published_date| naturaltime}}</small>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div><!-- end blog-list -->
+</div><!-- end widget -->
