@@ -4,7 +4,8 @@ from django.shortcuts import render
 
 
 def blog_view(request):
-    return render(request, 'blog.html')
+    return render(request, 'blog/blog.html')
 
 def single_view(request):
-    return render(request, 'single.html')
+    context ={"title":"blog title" ,"contenct":"blog contenct" ,'author':'Poorya fayazi'}
+    return render(request, 'blog/single.html',context=context)
