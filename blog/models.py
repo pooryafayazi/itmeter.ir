@@ -35,3 +35,16 @@ class Post(models.Model):
         return reverse('blog:single', kwargs={'post_id':self.id})
     
 
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    subject = models.CharField(max_length=255)
+    message = models.TextField()
+    created_date = models.DateTimeField(auto_now_add=True)
+    updated_date = models.DateTimeField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
+    def __str__(self):
+        return f'{self.name} - post : {self.post}'
+    class Meta:
+        ordering = ('-created_date',)
