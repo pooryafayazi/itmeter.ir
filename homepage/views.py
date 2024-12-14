@@ -7,7 +7,7 @@ def index_view(request):
 
 
 def about_view(request):
-    return render(request, 'index.html')
+    return render(request, 'about.html')
 
 
 def contact_view(request):
