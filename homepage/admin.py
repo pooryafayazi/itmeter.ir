@@ -33,4 +33,5 @@ class NewsCommentAdmin(admin.ModelAdmin):
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(Newsletter)
 admin.site.register(News, NewsAdmin)
+admin.site.register(Topic)
 admin.site.register(newsComment, NewsCommentAdmin)

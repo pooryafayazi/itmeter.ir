@@ -30,10 +30,10 @@
                                     <h4><a href="{% url 'homepage:news' news_id=n.id %}" title="">{{n.title}}</a></h4>
                                     <p>{{n.content}}</p>
                                     <small class="firstsmall"><a class="bg-orange" href="blog.html"
-                                            title="">Gadgets</a></small>
-                                    <small><a href="{% url 'homepage:news' news_id=n.id %}" title="">21 July, 2017</a></small>
-                                    <small><a href="author.html" title="">by Matilda</a></small>
-                                    <small><a href="{% url 'homepage:news' news_id=n.id %}" title=""><i class="fa fa-eye"></i> 1114</a></small>
+                                            title="">{{n.topic}}</a></small>
+                                    <small><a href="{% url 'homepage:news' news_id=n.id %}" title="">{{n.published_date}}</a></small>
+                                    <small><a href="author.html" title="">{{n.author}}</a></small>
+                                    <small><a href="{% url 'homepage:news' news_id=n.id %}" title=""><i class="fa fa-eye"></i> {{n.counted_views}} Views</a></small>
                                 </div><!-- end meta -->
                             </div><!-- end blog-box -->
                             <hr class="invis">

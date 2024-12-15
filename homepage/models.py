@@ -18,6 +18,10 @@ class Newsletter(models.Model):
     email = models.EmailField()
     def __str__(self):
         return self.email
+class Topic(models.Model):
+    name = models.CharField(max_length=255)
+    def __str__(self):
+        return self.name
 
 class News(models.Model):
     image = models.ImageField(upload_to='news/',default='news/defaultPost.jpg')
@@ -28,6 +32,7 @@ class News(models.Model):
     content = models.TextField()
     #tags = TaggableManager()
     category = models.ManyToManyField(Category)
+    topic = models.ForeignKey(Topic, on_delete=models.CASCADE, null=True)
     counted_views = models.IntegerField(default=0) # default=0
     status = models.BooleanField(default=False)
     published_date = models.DateTimeField(null=True)
