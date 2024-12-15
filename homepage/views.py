@@ -63,12 +63,8 @@ def single_news(request,news_id):
         'comments' : comments,
         'form' : form,
     }
-    if not current_news.login_require:        
-        return render(request, 'blog/blog-single.html', context)
-    else:
-        if not request.user.is_authenticated:         
-            return HttpResponseRedirect(reverse('accounts:login'))
-        else:
-            return render(request, 'blog/blog-single.html', context)
+            
+    return render(request, 'home/news.html', context)
+    
 
 

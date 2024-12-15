@@ -10,7 +10,8 @@ class ContactAdmin(admin.ModelAdmin):
 
 class NewsAdmin(admin.ModelAdmin):
     date_hierarchy = 'published_date'
-    empty_value_display = "-empty-"
+    empty_value_display = "-empty-"    
+    verbose_name_plural = 'News'
     #fields = [ "title"]
     #exclude = ["birth_date"]
     list_display = ["title","author", "status",'published_date']

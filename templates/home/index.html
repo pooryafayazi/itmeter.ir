@@ -16,27 +16,27 @@
 
                     <div class="blog-list clearfix">
                         {% for n in news %}
-                        <div class="blog-box row">
-                            <div class="col-md-4">
-                                <div class="post-media">
-                                    <a href="{% url 'homepage:news' news_id=news.id post_id=n.id %}" title="">
-                                        <img src="{% static 'upload/tech_blog_01.jpg' %}" alt="" class="img-fluid">
-                                        <div class="hovereffect"></div>
-                                    </a>
-                                </div><!-- end media -->
-                            </div><!-- end col -->
+                            <div class="blog-box row">
+                                <div class="col-md-4">
+                                    <div class="post-media">
+                                        <a href="{% url 'homepage:news' news_id=n.id %}" title="">
+                                            <img src="{{ n.image.url }}" alt="" class="img-fluid">
+                                            <div class="hovereffect"></div>
+                                        </a>
+                                    </div><!-- end media -->
+                                </div><!-- end col -->
 
-                            <div class="blog-meta big-meta col-md-8">
-                                <h4><a href="{% url 'homepage:news' news_id=news.id post_id=n.id %}" title="">{{n.title}}</a></h4>
-                                <p>{{n.content}}</p>
-                                <small class="firstsmall"><a class="bg-orange" href="blog.html"
-                                        title="">Gadgets</a></small>
-                                <small><a href="{% url 'homepage:news' news_id=news.id post_id=n.id %}" title="">21 July, 2017</a></small>
-                                <small><a href="author.html" title="">by Matilda</a></small>
-                                <small><a href="{% url 'homepage:news' news_id=news.id post_id=n.id %}" title=""><i class="fa fa-eye"></i> 1114</a></small>
-                            </div><!-- end meta -->
-                        </div><!-- end blog-box -->
-                        <hr class="invis">
+                                <div class="blog-meta big-meta col-md-8">
+                                    <h4><a href="{% url 'homepage:news' news_id=n.id %}" title="">{{n.title}}</a></h4>
+                                    <p>{{n.content}}</p>
+                                    <small class="firstsmall"><a class="bg-orange" href="blog.html"
+                                            title="">Gadgets</a></small>
+                                    <small><a href="{% url 'homepage:news' news_id=n.id %}" title="">21 July, 2017</a></small>
+                                    <small><a href="author.html" title="">by Matilda</a></small>
+                                    <small><a href="{% url 'homepage:news' news_id=n.id %}" title=""><i class="fa fa-eye"></i> 1114</a></small>
+                                </div><!-- end meta -->
+                            </div><!-- end blog-box -->
+                            <hr class="invis">
                         {% endfor %}
                     </div><!-- end blog-list -->
                 </div><!-- end page-wrapper -->
@@ -69,48 +69,13 @@
                         </div><!-- end banner -->
                     </div><!-- end widget -->
 
-                <!--    {% include 'home/trend-videos.html' %}  -->
+                <!-- home/trend-videos.html -->
 
                 {% include 'home/popular-news.html' %}
 
+                {% include 'home/recent-reviews.html' %}                    
 
-                {% include 'home/recent-reviews.html' %}
-
-                    
-
-                    <div class="widget">
-                        <h2 class="widget-title">Follow Us</h2>
-
-                        <div class="row text-center">
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                                <a href="#" class="social-button facebook-button">
-                                    <i class="fa fa-facebook"></i>
-                                    <p>27k</p>
-                                </a>
-                            </div>
-
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                                <a href="#" class="social-button twitter-button">
-                                    <i class="fa fa-twitter"></i>
-                                    <p>98k</p>
-                                </a>
-                            </div>
-
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                                <a href="#" class="social-button google-button">
-                                    <i class="fa fa-google-plus"></i>
-                                    <p>17k</p>
-                                </a>
-                            </div>
-
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                                <a href="#" class="social-button youtube-button">
-                                    <i class="fa fa-youtube"></i>
-                                    <p>22k</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div><!-- end widget -->
+                {% include 'blog/follow-us.html' %}
 
                     <div class="widget">
                         <div class="banner-spot clearfix">
