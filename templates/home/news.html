@@ -1,10 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load template_tag %}
 
 {% block content %}
-
-
-
 
 
 <section class="section single-wrapper">
@@ -86,7 +84,7 @@
                                             <a href="{% url 'homepage:news' news_id=previous_news.id %}" class="list-group-item list-group-item-action flex-column align-items-start">
                                                 <div class="w-100 justify-content-between text-right">
                                                     <img src="{{ previous_news.image.url }}" alt="" class="img-fluid float-right">
-                                                    <h5 class="mb-1">{{ previous_news.title }}</h5>
+                                                    <h5 class="mb-1"><p>{{ previous_news.title|truncate_w:7 }}</p></h5>
                                                     <small>Prev News</small>
                                                 </div>
                                             </a>
@@ -105,9 +103,10 @@
                                             <a href="{% url 'homepage:news' news_id=next_news.id %}" class="list-group-item list-group-item-action flex-column align-items-start">
                                                 <div class="w-100 justify-content-between">
                                                     <img src="{{ next_news.image.url }}" alt="" class="img-fluid float-left">
-                                                    <h5 class="mb-1">{{ next_news.title }}</h5>
+                                                    <h5 class="mb-1"><p>{{ next_news.title|truncate_w:7 }}</p></h5>
                                                     <small>Next News</small>
                                                 </div>
+                                                
                                             </a>
                                         </div>
                                     </div>
@@ -266,9 +265,9 @@
 
                 <!-- home/trend-videos.html -->
 
-                {% include 'home/popular-news.html' %}
+                {% latest_news 4 %}
 
-                {% include 'home/recent-reviews.html' %}                    
+                <!-- home/recent-reviews.html -->                   
 
                 {% include 'blog/follow-us.html' %}
                     
