@@ -67,4 +67,16 @@ def single_news(request,news_id):
     return render(request, 'home/news.html', context)
     
 
+def common_data(request):
+       return {
+        'name' : "Poorya",
+        'surname' : "Fayazi",
+        'email1' : "fayazipoorya@gmail.com",
+        'email2' : "poorya189@gmail.com",
+        'phone1' : "+989190104604",
+        'phone2' : "+989937272005",
+        'city' : "Tehran",
+        'country' : "IRAN",
+       }
+
 

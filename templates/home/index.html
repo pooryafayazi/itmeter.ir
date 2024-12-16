@@ -28,7 +28,7 @@
 
                                 <div class="blog-meta big-meta col-md-8">
                                     <h4><a href="{% url 'homepage:news' news_id=n.id %}" title="">{{n.title}}</a></h4>
-                                    <p>{{n.content|truncate_w:200|safe}}</p>
+                                    <p>{{n.content|truncate_w:100|safe}}</p>
                                     <small class="firstsmall"><a class="bg-orange" href="blog.html"
                                             title="">{{n.topic}}</a></small>
                                     <small><a href="{% url 'homepage:news' news_id=n.id %}" title="">{{n.published_date}}</a></small>
