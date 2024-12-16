@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% load custom_filters %}
+{% load template_tag %}
 {% block content %}
 
 <section class="section single-wrapper">
@@ -11,17 +12,17 @@
                     <div class="blog-title-area text-center">
                         <ol class="breadcrumb hidden-xs-down">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Blog</a></li>
-                            <li class="breadcrumb-item active">{{title}}</li>
+                            <li class="breadcrumb-item"><a href="#">Reviews</a></li>
+                            <li class="breadcrumb-item active">{{current_post.title}}</li>
                         </ol>
 
-                        <span class="color-orange"><a href="blog.html" title="">{{current_post.category.all}}</a></span>
+                        <span class="color-orange"><a href="blog.html" title="">{{current_post.topic}}</a></span>
 
-                        <h3>{{title}}</h3>
+                        <h3>{{current_post.title}}</h3>
 
                         <div class="blog-meta big-meta">
                             <small><a href="{% url 'blog:single' post_id=current_post.id %}" title="">{{current_post.published_date|date:'d M Y'}}</a></small>
-                            <small><a href="author.html" title="">{{current_post.author.get_full_name}}</a></small>
+                            <small><a href="author.html" title="">{{current_post.author}}</a></small>
                             <small><a href="#" title=""><i class="fa fa-eye"></i> {{current_post.counted_views}} Views</a></small>
                         </div><!-- end meta -->
 
@@ -38,7 +39,7 @@
                     </div><!-- end title -->
 
                     <div class="single-post-media">
-                        <img src="{% static 'upload/tech_menu_08.jpg' %}" alt="" class="img-fluid">
+                        <img src="{{ current_post.image.url }}" alt="" class="img-fluid">
                     </div><!-- end media -->
 
                     <div class="blog-content">
@@ -73,7 +74,7 @@
                         <div class="col-lg-12">
                             <div class="banner-spot clearfix">
                                 <div class="banner-img">
-                                    <img src="{% static 'upload/banner_01.jpg' %}" alt="" class="img-fluid">
+                                    <img src="{% static 'images/post-banner-728-90.jpg' %}" alt="" class="img-fluid">
                                 </div><!-- end banner-img -->
                             </div><!-- end banner -->
                         </div><!-- end col -->
@@ -83,40 +84,45 @@
 
                     <div class="custombox prevnextpost clearfix">
                         <div class="row">
-                            <div class="col-lg-6">
-                                <div class="blog-list-widget">
-                                    <div class="list-group">
-                                        {% if previous_post %}
+
+                            <!--Previous Post-->
+                            {% if previous_post %}
+                                <div class="col-lg-6">
+                                    <div class="blog-list-widget">
+                                        <div class="list-group">                                        
                                             <a href="{% url 'blog:single' post_id=previous_post.id %}"
                                                 class="list-group-item list-group-item-action flex-column align-items-start">
                                                 <div class="w-100 justify-content-between text-right">
-                                                    <img src="{% static 'upload/tech_menu_19.jpg' %}" alt="" class="img-fluid float-right">
-                                                    <h5 class="mb-1">5 Beautiful buildings you need to before dying</h5>
+                                                    <img src="{{ previous_post.image.url }}" alt="" class="img-fluid float-right">
+                                                    <h5 class="mb-1">{{ previous_post.title|truncate_w:8 }}</h5>
                                                     <small>Prev Post</small>
                                                 </div>
-                                            </a>
-                                        {% endif %}
+                                            </a>                                            
+                                        </div>
                                     </div>
-                                </div>
-                            </div><!-- end col -->
+                                </div><!-- end col -->
+                            {% endif %}
 
-                            <div class="col-lg-6">
-                                <div class="blog-list-widget">
-                                    <div class="list-group">
-                                        {% if next_post %}
+
+                            <!--Next post-->
+                            {% if next_post %}
+                                <div class="col-lg-6">
+                                    <div class="blog-list-widget">
+                                        <div class="list-group">                                        
                                             <a href="{% url 'blog:single' post_id=next_post.id %}"
                                                 class="list-group-item list-group-item-action flex-column align-items-start">
                                                 <div class="w-100 justify-content-between">
-                                                    <img src="{% static 'upload/tech_menu_20.jpg' %}" alt="" class="img-fluid float-left">
-                                                    <h5 class="mb-1">Let's make an introduction to the glorious world of
-                                                        history</h5>
+                                                    <img src="{{ next_post.image.url }}" alt="" class="img-fluid float-left">
+                                                    <h5 class="mb-1">{{ next_post.title|truncate_w:8 }}</h5>
                                                     <small>Next Post</small>
                                                 </div>
-                                            </a>
-                                        {% endif %}
+                                            </a>                                        
+                                        </div>
                                     </div>
-                                </div>
-                            </div><!-- end col -->
+                                </div><!-- end col -->
+                            {% endif %}
+
+
                         </div><!-- end row -->
                     </div><!-- end author-box -->
 
@@ -241,12 +247,12 @@
                     <div class="widget">
                         <div class="banner-spot clearfix">
                             <div class="banner-img">
-                                <img src="{% static 'upload/banner_07.jpg' %}" alt="" class="img-fluid">
+                                <img src="{% static 'images/post-banner-300-600.jpg' %}" alt="" class="img-fluid">
                             </div><!-- end banner-img -->
                         </div><!-- end banner -->
                     </div><!-- end widget -->
 
-                    {% include 'blog/popular-posts.html' %}
+                    {% latest_posts 4 %}
 
 
                     <div class="widget">
@@ -286,7 +292,7 @@
                     <div class="widget">
                         <div class="banner-spot clearfix">
                             <div class="banner-img">
-                                <img src="{% static 'upload/banner_03.jpg' %}" alt="" class="img-fluid">
+                                <img src="{% static 'images/post-banner-1200-1200.jpg' %}" alt="" class="img-fluid">
                             </div><!-- end banner-img -->
                         </div><!-- end banner -->
                     </div><!-- end widget -->

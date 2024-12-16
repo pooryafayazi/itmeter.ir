@@ -1,4 +1,5 @@
 {% load static %}
+{% load template_tag %}
 {% load humanize %} 
 
 <div class="widget">
@@ -8,8 +9,8 @@
             {% for post in posts %}
             <a href="{% url 'blog:single' post_id=post.id %}" class="list-group-item list-group-item-action flex-column align-items-start">
                 <div class="w-100 justify-content-between">
-                    <img src="{% static 'upload/tech_blog_08.jpg' %}" alt="" class="img-fluid float-left">
-                    <h5 class="mb-1">{{post.title}}</h5>
+                    <img src="{{ post.image.url }}" alt="" class="img-fluid float-left">
+                    <h5 class="mb-1">{{post.title|truncate_w:6|safe}}</h5>
                     <small>{{post.published_date| naturaltime}}</small>
                 </div>
             </a>

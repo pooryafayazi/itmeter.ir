@@ -12,6 +12,7 @@ class Post(models.Model):
     #author = models.ForeignKey(User, on_delete=models.CASCADE)
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     title = models.CharField(max_length=255)
+    topic = models.ForeignKey('homepage.Topic', on_delete=models.SET_NULL, null=True)
     content = models.TextField()
     #tags = TaggableManager()
     category = models.ManyToManyField(Category)
