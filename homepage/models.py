@@ -27,7 +27,7 @@ class News(models.Model):
     image = models.ImageField(upload_to='news/',default='news/defaultPost.jpg')
     #author = models.ForeignKey(User, on_delete=models.CASCADE)
     author = models.CharField(max_length=255)
-    source = models.CharField(max_length=255,null=True)
+    source = models.URLField()
     title = models.CharField(max_length=255)
     content = models.TextField()
     #tags = TaggableManager()
