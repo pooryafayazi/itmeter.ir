@@ -32,7 +32,7 @@
                                     <small class="firstsmall"><a class="bg-orange" href="blog.html"
                                             title="">{{n.topic}}</a></small>
                                     <small><a href="{% url 'homepage:news' news_id=n.id %}" title="">{{n.published_date}}</a></small>
-                                    <small><a href="author.html" title="">{{n.author}}</a></small>
+                                    <small><a href="{{n.source}}" target="_blank" title="">{{n.author}}</a></small>
                                     <small><a href="{% url 'homepage:news' news_id=n.id %}" title=""><i class="fa fa-eye"></i> {{n.counted_views}} Views</a></small>
                                 </div><!-- end meta -->
                             </div><!-- end blog-box -->

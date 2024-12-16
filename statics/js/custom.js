@@ -66,3 +66,8 @@ function openCategory(evt, catName) {
     document.getElementById(catName).style.display = "block";
     evt.currentTarget.className += " active";
 } 
+
+function openInNewTab(url) {
+    const newTab = window.open(url, '_blank');
+    window.focus();
+}
