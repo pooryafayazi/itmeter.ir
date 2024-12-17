@@ -1,0 +1,14 @@
+{% load static %}
+
+<div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+    <div class="widget">
+        <h2 class="widget-title">Popular Categories</h2>
+        <div class="link-widget">
+            <ul> 
+                {% for cat in categories|slice:"5" %}
+                <li><a href="#">{{cat.name}} <span>{{cat.count}}</span></a></li>
+                {% endfor %}
+            </ul>
+        </div><!-- end link-widget -->
+    </div><!-- end widget -->
+</div><!-- end col -->

@@ -8,3 +8,37 @@ from django.utils import timezone
 def latest_posts(arg=3):
     posts = Post.objects.filter(status=1, published_date__lte=timezone.now()).order_by('-counted_views')[:arg]
     return {'posts' : posts}
+
+'''
+@register.inclusion_tag('categories.html')
+def postcategories():
+    posts = Post.objects.filter(status=1, published_date__lte=timezone.now())
+    categories = Category.objects.all()
+    cat_dict = {}
+    for name in categories:
+        cat_dict[name] = posts.filter(category=name).count()
+    return {'categories' : cat_dict}
+'''
+
+'''
+@register.inclusion_tag('home/categories.html')
+def postcategories():
+    posts = Post.objects.filter(status=1, published_date__lte=timezone.now())
+    categories = Category.objects.all()
+    cat_dict = {}
+    for name in categories:
+        cat_dict[name] = posts.filter(category=name).count()
+    return {'categories' : cat_dict}'''
+
+
+@register.inclusion_tag('home/categories.html')
+def postcategories():
+    posts = Post.objects.filter(status=1, published_date__lte=timezone.now())
+    categories = Category.objects.all()
+    
+    cat_list = [] 
+    for category in categories:
+        count = posts.filter(category=category).count() 
+        cat_list.append({'name': category.name, 'count': count}) 
+    cat_list.sort(key=lambda x: x['count'], reverse=True)
+    return {'categories': cat_list} 
