@@ -76,7 +76,7 @@
                                         <span class="color-orange"><a href="blog.html" title="">{{post.topic}}</a></span>
                                         <h4><a href="{% url 'blog:single' post_id=post.id %}" title="">{{post.title}}</a></h4>
                                         <p>{{post.content|truncate_w:38|safe}}</p>
-                                        <small><a href="{% url 'blog:single' post_id=post.id %}" title="">{{post.published_date|date:'D d M Y'}}</a></small>
+                                        <small><a href="{% url 'blog:single' post_id=post.id %}" title="">{{post.published_date|date:'d D M Y'}}</a></small>
                                         <small><a href="author.html" title="">{{post.author.get_full_name}}</a></small>
                                         <small><a href="{% url 'blog:single' post_id=post.id %}" title=""><i class="fa fa-eye"></i> {{post.counted_views}} Views </a></small>
                                     </div><!-- end meta -->

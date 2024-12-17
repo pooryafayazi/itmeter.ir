@@ -13,7 +13,7 @@
                                     <div class="blog-meta">
                                         <span class="bg-orange"><a href="blog.html" title="">{{n.topic}}</a></span>
                                         <h4><a href="{% url 'homepage:news' news_id=n.id %}" title="">{{n.title}}</a></h4>
-                                        <small><a href="{% url 'homepage:news' news_id=n.id %}" title="">{{n.published_date}}</a></small>
+                                        <small><a href="{% url 'homepage:news' news_id=n.id %}" title="">{{n.published_date|date:"d D m Y"}}</a></small>
                                         <small><a href="author.html" title="">{{n.author}}</a></small>
                                     </div><!-- end meta -->
                                 </div><!-- end shadow-desc -->
@@ -30,7 +30,7 @@
                                     <div class="blog-meta">
                                         <span class="bg-orange"><a href="blog.html" title="">{{n.topic}}</a></span>
                                         <h4><a href="{% url 'homepage:news' news_id=n.id %}" title="">{{n.title}}</a></h4>
-                                        <small><a href="{% url 'homepage:news' news_id=n.id %}" title="">{{n.published_date}}</a></small>
+                                        <small><a href="{% url 'homepage:news' news_id=n.id %}" title="">{{n.published_date|date:"d D m Y"}}</a></small>
                                         <small><a href="author.html" title="">{{n.author}}</a></small>
                                     </div><!-- end meta -->
                                 </div><!-- end shadow-desc -->
