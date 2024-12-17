@@ -1904,3 +1904,11 @@ h3.small_heading {
     clear: both;
     display: table;
   }
+
+
+
+  .page-item.active .page-link {
+    background-color: #0275d8 !important;
+    border-color: transparent;
+    color: #fff;
+  }
