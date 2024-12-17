@@ -5,7 +5,8 @@ from django.http import HttpResponseRedirect
 from django.utils import timezone
 # Create your views here.
 from .models import News, newsComment
-from .forms import newsCommentForm
+from .forms import newsCommentForm,ContactForm
+from django.contrib import messages
 from django.core.paginator import Paginator,PageNotAnInteger,EmptyPage
 def index_view(request,**kwargs):
     #return render(request, 'home/index.html')
@@ -41,7 +42,20 @@ def about_view(request):
 
 
 def contact_view(request):
-    return render(request, 'home/contact.html')
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            contact = form.save(commit=False)            
+            contact.save()
+            messages.add_message(request, messages.SUCCESS ,"Your data is saved correctly") 
+            return render(request, 'home/contact.html', {'form':form })
+        else:
+            messages.add_message(request, messages.ERROR, "Your data is NOT saved!", {'form':form }) 
+
+    else:
+        form = ContactForm()
+    return render(request, 'home/contact.html', {'form':form })
+
 
 def single_news(request,news_id):
     current_news = get_object_or_404(News,status=1, id = news_id)    

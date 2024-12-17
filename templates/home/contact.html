@@ -45,14 +45,13 @@
                                 make smart choices in technology.</p>
                         </div>
                         <div class="col-lg-7">
-                            <form class="form-wrapper">
-                                <input type="text" class="form-control" placeholder="Your name">
-                                <input type="text" class="form-control" placeholder="Email address">
-                                <input type="text" class="form-control" placeholder="Phone">
-                                <input type="text" class="form-control" placeholder="Subject">
-                                <textarea class="form-control" placeholder="Your message"></textarea>
-                                <button type="submit" class="btn btn-primary">Send <i
-                                        class="fa fa-envelope-open-o"></i></button>
+                            <form class="form-wrapper" method="post" action="{% url 'homepage:contact' %}">
+                                {% csrf_token %}
+                                <input name="name" type="text" class="form-control" placeholder="Your name">
+                                <input name="email" type="emil" class="form-control" placeholder="Email address">
+                                <input name="subject" type="text" class="form-control" placeholder="Subject">
+                                <textarea name="message" class="form-control" placeholder="Your message"></textarea>
+                                <button type="submit" class="btn btn-primary">Send <i class="fa fa-envelope-open-o"></i></button>
                             </form>
                         </div>
                     </div>
@@ -61,4 +60,5 @@
         </div><!-- end row -->
     </div><!-- end container -->
 </section>
+
 {% endblock %}
