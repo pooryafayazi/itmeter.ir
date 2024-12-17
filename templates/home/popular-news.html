@@ -1,5 +1,7 @@
 {% load static %}
 {% load template_tag %}
+{% load humanize %} 
+
 <div class="widget">
     <h2 class="widget-title">Most Viewed News</h2>
     <div class="blog-list-widget">
@@ -9,7 +11,7 @@
                     <div class="w-100 justify-content-between">
                         <img src="{{ n.image.url }}" alt="" class="img-fluid float-left">
                         <h6 class="mb-1">{{n.title|truncate_w:6|safe}}</h6>
-                        <small style="margin-left:70px">{{n.published_date}}</small>
+                        <small style="margin-left:70px">{{n.published_date| naturaltime}}</small>
                     </div>
                 </a>
             {% endfor %}            
