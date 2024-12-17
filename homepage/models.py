@@ -7,6 +7,7 @@ class Contact(models.Model):
     email = models.EmailField()
     subject = models.CharField(max_length=255, blank=True, null=True)
     message = models.TextField()
+    creator = models.BooleanField(default=False)
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
     class Meta:
@@ -24,7 +25,7 @@ class Topic(models.Model):
         return self.name
 
 class News(models.Model):
-    image = models.ImageField(upload_to='news/',default='news/defaultPost.jpg')
+    image = models.ImageField(upload_to='news/%Y/%m/%d/',default='news/defaultPost.jpg')
     #author = models.ForeignKey(User, on_delete=models.CASCADE)
     author = models.CharField(max_length=255)
     source = models.URLField()

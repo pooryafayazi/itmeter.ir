@@ -12,8 +12,8 @@
                 <div class="page-wrapper">
                     <div class="blog-title-area text-center">
                         <ol class="breadcrumb hidden-xs-down">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">News</a></li>
+                            <!--<li class="breadcrumb-item"><a href="#">Home</a></li>-->
+                            <li class="breadcrumb-item"><a href="{% url 'homepage:index' %}">News</a></li>
                             <li class="breadcrumb-item active">{{current_news.title}}</li>
                         </ol>
                         
@@ -61,17 +61,7 @@
                         </div><!-- end post-sharing -->
                     </div><!-- end title -->
 
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="banner-spot clearfix">
-                                <div class="banner-img">
-                                    <img src="{% static 'images/banner-728-90.jpg' %}" alt="" class="img-fluid">
-                                </div><!-- end banner-img -->
-                            </div><!-- end banner -->
-                        </div><!-- end col -->
-                    </div><!-- end row -->
 
-                    <hr class="invis1">
 
                     <div class="custombox prevnextpost clearfix">
                         <div class="row">
@@ -117,6 +107,18 @@
 
                         </div><!-- end row -->
                     </div><!-- end author-box -->
+
+                    <hr class="invis1">
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="banner-spot clearfix">
+                                <div class="banner-img">
+                                    <img src="{% static 'images/banner-728-90.jpg' %}" alt="" class="img-fluid">
+                                </div><!-- end banner-img -->
+                            </div><!-- end banner -->
+                        </div><!-- end col -->
+                    </div><!-- end row -->
 
                     <hr class="invis1">
 

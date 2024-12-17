@@ -9,7 +9,6 @@ from .forms import newsCommentForm
 from django.core.paginator import Paginator,PageNotAnInteger,EmptyPage
 def index_view(request,**kwargs):
     #return render(request, 'home/index.html')
-
 #def blog_view(request,cat_name=None,author_username=None):
     news = News.objects.filter(status=1 , published_date__lte=timezone.now())
     if kwargs.get('cat_name') is not None:

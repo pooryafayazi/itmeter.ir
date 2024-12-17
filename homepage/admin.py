@@ -4,8 +4,8 @@ from .models import *
 
 class ContactAdmin(admin.ModelAdmin):
     date_hierarchy = 'created_date'
-    list_display = ['name', 'email', 'created_date']
-    list_filter = ['email']
+    list_display = ['name', 'email', 'creator', 'created_date']
+    list_filter = ['email', 'creator']
     search_fields = ['name', 'message']
 
 class NewsAdmin(admin.ModelAdmin):
