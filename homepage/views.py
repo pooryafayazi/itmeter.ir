@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from django.utils import timezone
 # Create your views here.
 from .models import News, newsComment
-from .forms import newsCommentForm,ContactForm
+from .forms import newsCommentForm,ContactForm,NewsLetterForm
 from django.contrib import messages
 from django.core.paginator import Paginator,PageNotAnInteger,EmptyPage
 def index_view(request,**kwargs):
@@ -50,7 +50,8 @@ def contact_view(request):
             messages.add_message(request, messages.SUCCESS ,"Your data is saved correctly") 
             return render(request, 'home/contact.html', {'form':form })
         else:
-            messages.add_message(request, messages.ERROR, "Your data is NOT saved!", {'form':form }) 
+            messages.add_message(request, messages.ERROR, "Your data is NOT saved!", {'form':form })
+            return render(request, 'home/contact.html', {'form':form })
 
     else:
         form = ContactForm()
@@ -100,3 +101,18 @@ def index_search(request):
             news = news.filter(content__contains = s)    
     context = {'news': news}
     return render(request, 'home/index.html', context=context)
+
+
+def newsletter_view(request):    
+    if request.method == 'POST':
+        form = NewsLetterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS ,"Your email is saved successfully")
+            return HttpResponseRedirect('/')
+        else:
+            messages.add_message(request, messages.ERROR ,"Your email is not saved!")
+            return HttpResponseRedirect('/')
+    else:
+        form = NewsLetterForm() 
+        return render(request, 'home/index.html', {'form': form})

@@ -128,8 +128,9 @@
                                 <hr class="invis">
 
                                 <div class="newsletter-widget text-left">
-                                    <form class="form-inline">
-                                        <input type="text" class="form-control" placeholder="Enter your email address">
+                                    <form class="form-inline" method="post" action="{% url 'homepage:newsletter' %}">
+                                        {% csrf_token %}
+                                        <input name="email" type="email" class="form-control" placeholder="Enter your email address">
                                         <button type="submit" class="btn btn-primary">SUBMIT</button>
                                     </form>
                                 </div><!-- end newsletter -->
