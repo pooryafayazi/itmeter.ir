@@ -1834,3 +1834,73 @@ h3.small_heading {
     right: 2%;
 }
 
+
+/********************************
+********************************
+********************************
+            search
+********************************
+********************************
+********************************/
+
+.single-sidebar-widget {
+    margin: 3px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .single-sidebar-widget:last-child {
+    border-bottom: none;
+    margin-bottom: 0px;
+  }
+  
+  .search-widget form.search-form input[type=text] {
+    color: #fff;
+    padding: 10px 22px;
+    font-size: 14px;
+    border: none;
+    float: left;
+    width: 80%;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    background: #2a6a9c;
+  }
+  
+ .search-widget ::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: #fff;
+  }
+  
+ .search-widget ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #fff;
+  }
+  
+.search-widget :-ms-input-placeholder {
+    /* IE 10+ */
+    color: #fff;
+  }
+  
+.search-widget :-moz-placeholder {
+    /* Firefox 18- */
+    color: #fff;
+  }
+  
+.search-widget form.search-form button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2a6a9c;
+    color: #fff;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  
+.search-widget form.search-form::after {
+    content: "";
+    clear: both;
+    display: table;
+  }

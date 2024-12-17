@@ -18,7 +18,7 @@ def get_latest_news(count=6):
     return News.objects.order_by('-published_date')[:count].filter(status=1, published_date__lte=timezone.now())
 
 @register.inclusion_tag('home/popular-news.html')
-def latest_news(arg=3):
+def most_viewed_news(arg=3):
     news = News.objects.filter(status=1, published_date__lte=timezone.now()).order_by('-counted_views')[:arg]
     return {'news' : news}
 

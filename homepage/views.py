@@ -79,3 +79,10 @@ def common_data(request):
        }
 
 
+def index_search(request):
+    news = News.objects.filter(status=1 , published_date__lte=timezone.now())  
+    if request.method == 'GET':
+        if s := request.GET.get('s'):
+            news = news.filter(content__contains = s)    
+    context = {'news': news}
+    return render(request, 'home/index.html', context=context)

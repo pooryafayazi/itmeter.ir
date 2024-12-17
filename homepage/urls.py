@@ -11,5 +11,6 @@ urlpatterns = [
     path('<str:news_id>', single_news ,name='news'),
     path('news/category/<str:cat_name>', index_view ,name='category'),
     path('author/<str:author>', index_view ,name='author'),
+    path('search/', index_search, name='search'),
 
 ] 
