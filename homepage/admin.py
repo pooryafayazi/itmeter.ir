@@ -14,12 +14,15 @@ class NewsAdmin(admin.ModelAdmin):
     verbose_name_plural = 'News'
     #fields = [ "title"]
     #exclude = ["birth_date"]
-    list_display = ["title","author", "status",'published_date']
+    list_display = ["short_title","author", "status",'published_date']
     list_filter =  ["status",'published_date',"author",]
     #ordering = ['-created_date']
     search_fields = ["title", "'content"]
 
     #summernote_fields = ('content',)
+    def short_title(self, obj):
+        return obj.title[:45]+ "..."
+    short_title.short_description = 'title'
 
 class NewsCommentAdmin(admin.ModelAdmin):
     date_hierarchy = 'created_date'

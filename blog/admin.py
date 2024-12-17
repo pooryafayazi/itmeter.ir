@@ -10,12 +10,16 @@ class PostAdmin (admin.ModelAdmin):
     empty_value_display = "-empty-"
     #fields = [ "title"] #jjust these fildes can be edited in panel
     #exclude = ["birth_date"] #just these fildes cannot be edited
-    list_display = ["title","author", "status",'login_require','published_date',"created_date"]
+    list_display = ["short_title","author", "status",'login_require','published_date',"created_date"]
     list_filter =  ["status",'published_date',"author",]
     #ordering = ['-created_date']
     search_fields = ["title", "'content"]
 
     #summernote_fields = ('content',)
+    def short_title(self, obj):
+        return obj.title[:35]+ "..."
+    short_title.short_description = 'title'
+
  
 
 class CommentAdmin (admin.ModelAdmin):
