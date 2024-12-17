@@ -41,4 +41,4 @@ def postcategories():
         count = posts.filter(category=category).count() 
         cat_list.append({'name': category.name, 'count': count}) 
     cat_list.sort(key=lambda x: x['count'], reverse=True)
-    return {'categories': cat_list} 
+    return {'Pcategories': cat_list} 

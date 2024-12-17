@@ -14,9 +14,9 @@ def index_view(request,**kwargs):
     if kwargs.get('cat_name') is not None:
     #if cat_name:
         news = news.filter(category__name=kwargs['cat_name'])
-    if kwargs.get('author_username') is not None:
+    if kwargs.get('author') is not None:
     #if author_username:
-        news = news.filter(author__username =kwargs['author_username'])
+        news = news.filter(author =kwargs['author'])
     if kwargs.get('tag_name') is not None:
     #if tag_name:
         news = news.filter(tags__name=kwargs['tag_name'])

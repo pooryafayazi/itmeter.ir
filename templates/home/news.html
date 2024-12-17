@@ -23,7 +23,8 @@
 
                         <div class="blog-meta big-meta">
                             <small><a href="tech-single.html" title="">{{current_news.published_date|date:"d D m Y"}}{{current_news.published_date|time:" h:i a"}}</a></small>
-                            <small><a href="{{current_news.source}}" target="_blank" title="">{{current_news.author}}</a></small>
+                            <small><a href="{% url 'homepage:author' author=current_news.author %}" target="_blank" title="">{{current_news.author}}</a></small>
+                            <small><a href="{{current_news.source}}" target="_blank" title="">Source</a></small>
                             <small><a href="#" title=""><i class="fa fa-eye"></i> {{current_news.counted_views}} Views</a></small>
                         </div><!-- end meta -->
 

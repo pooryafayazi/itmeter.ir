@@ -5,9 +5,15 @@
         <h2 class="widget-title">Popular Categories</h2>
         <div class="link-widget">
             <ul> 
-                {% for cat in categories|slice:"5" %}
-                <li><a href="#">{{cat.name}} <span>{{cat.count}}</span></a></li>
-                {% endfor %}
+                {% if Pcategories  %}
+                    {% for cat in Pcategories|slice:"5" %}
+                        <li><a href="{% url 'blog:category' cat_name=cat.name %}">{{cat.name}} <span>{{cat.count}}</span></a></li>
+                    {% endfor %}
+                {% elif Ncategories  %}
+                    {% for cat in Ncategories|slice:"5" %}
+                        <li><a href="{% url 'homepage:category' cat_name=cat.name %}">{{cat.name}} <span>{{cat.count}}</span></a></li>
+                    {% endfor %}
+                {% endif %}
             </ul>
         </div><!-- end link-widget -->
     </div><!-- end widget -->

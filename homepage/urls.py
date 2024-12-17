@@ -9,6 +9,7 @@ urlpatterns = [
     path('about', about_view,name='about' ),
     path('contact', contact_view ,name='contact'),
     path('<str:news_id>', single_news ,name='news'),
-    path('category/<str:cat_name>', index_view ,name='category'),
+    path('news/category/<str:cat_name>', index_view ,name='category'),
+    path('author/<str:author>', index_view ,name='author'),
 
 ] 

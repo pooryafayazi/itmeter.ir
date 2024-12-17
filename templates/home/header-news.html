@@ -1,5 +1,5 @@
 {% load static %}
-
+{% if news|length > 2 %}
 <section class="section first-section">
     <div class="container-fluid">
         <div class="masonry-blog clearfix">
@@ -42,3 +42,4 @@
         </div><!-- end masonry -->
     </div>
 </section>
+{% endif %}

@@ -22,7 +22,7 @@
 
                         <div class="blog-meta big-meta">
                             <small><a href="{% url 'blog:single' post_id=current_post.id %}" title="">{{current_post.published_date|date:"d D m Y"}}{{current_post.published_date|time:" h:i a"}}</a></small>
-                            <small><a href="author.html" title="">{{current_post.author.get_full_name}}</a></small>
+                            <small><a href="{% url 'blog:author' author_username=current_post.author.username %}" title="">{{current_post.author.get_full_name}}</a></small>
                             <small><a href="#" title=""><i class="fa fa-eye"></i> {{current_post.counted_views}} Views</a></small>
                         </div><!-- end meta -->
 
