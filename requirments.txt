@@ -1,6 +1,7 @@
 asgiref==3.8.1
 bleach==6.2.0
 Django==4.2
+django-extensions==3.2.3
 django-summernote==0.8.20.0
 mysqlclient==2.2.6
 pillow==11.0.0

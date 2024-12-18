@@ -39,8 +39,10 @@ INSTALLED_APPS = [
     'django_summernote',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'django_extensions',
     'homepage',
     'blog',
+    
     
 ]
 
