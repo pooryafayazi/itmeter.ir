@@ -39,12 +39,13 @@ INSTALLED_APPS = [
     'django_summernote',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'django.contrib.sites',
     'django_extensions',
     'homepage',
-    'blog',
-    
-    
+    'blog',    
 ]
+
+SITE_ID = 2
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
