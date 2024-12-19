@@ -6,6 +6,8 @@ from blog.forms import PostCommentForm
 from django.http import HttpResponseRedirect
 from django.core.paginator import Paginator,PageNotAnInteger,EmptyPage
 # Create your views here.
+from django.contrib import messages
+
 
 
 def blog_view(request,**kwargs):
@@ -36,6 +38,16 @@ def blog_view(request,**kwargs):
     return render(request, 'blog/blog.html', context=context)
 
 def single_view(request, post_id):
+    if request.method == 'POST':
+        form = PostCommentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS ,"Your Comment Submitted") 
+        else:
+            messages.add_message(request, messages.ERROR, "Your Comment did not Submitted!", {'form':form })
+
+        
+    
     current_post = get_object_or_404(Post,status=1, id = post_id)    
     current_post.counted_views += 1
     current_post.save()

@@ -4,7 +4,7 @@ from captcha.fields import CaptchaField
 
 
 class PostCommentForm(forms.ModelForm):
-    captcha = CaptchaField()
+    #captcha = CaptchaField()
     class Meta:
         model = PostComment
         fields =  ['post','name','email','subject' ,'message']

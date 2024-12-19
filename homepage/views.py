@@ -59,6 +59,16 @@ def contact_view(request):
 
 
 def single_news(request,news_id):
+    if request.method == 'POST':
+        form = newsCommentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS ,"Your Comment Submitted") 
+        else:
+            messages.add_message(request, messages.ERROR, "Your Comment did not Submitted!", {'form':form })
+
+        
+    
     current_news = get_object_or_404(News,status=1, id = news_id)    
     current_news.counted_views += 1
     current_news.save()
