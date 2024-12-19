@@ -1912,3 +1912,64 @@ h3.small_heading {
     border-color: transparent;
     color: #fff;
   }
+
+
+  /********************
+  ********************
+taggit
+  ********************
+  ********************/
+
+.single-sidebar-widget:last-child {
+    border-bottom: none;
+    margin-bottom: 0px;
+}
+.single-sidebar-widget {
+    margin: 30px 3px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #eee;
+}
+.tag-cloud-widget .tagcloud-title {
+    background: #2a6a9c;
+    color: #fff;
+    text-align: center;
+    padding: 12px 0px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+
+}
+.tag-cloud-widget .tagcloud-title h4{
+    line-height: 1.5em;
+    font-size: 18px;
+    font-family: "Poppins", sans-serif;
+    color: #222222;
+    line-height: 1.2em !important;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-weight: 600;
+}
+.tag-ul-li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 1px !important;
+    unicode-bidi: isolate;
+}
+.tag-cloud-widget ul li {
+    font-size: 9px;
+    display: inline-block;
+    border: 1px solid #eee;
+    background: #fff;
+    padding: 4px 3px;
+    margin-bottom: 10px;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}

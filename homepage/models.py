@@ -1,6 +1,8 @@
 from django.db import models
 from django.urls import reverse
 from blog.models import Category
+from taggit.managers import TaggableManager
+
 # Create your models here.
 class Contact(models.Model):
     name= models.CharField(max_length=255, blank=True, null=True)
@@ -31,7 +33,7 @@ class News(models.Model):
     source = models.URLField()
     title = models.CharField(max_length=255)
     content = models.TextField()
-    #tags = TaggableManager()
+    tags = TaggableManager()
     category = models.ManyToManyField(Category)
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE, null=True)
     counted_views = models.IntegerField(default=0) # default=0

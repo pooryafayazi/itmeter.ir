@@ -11,6 +11,7 @@ urlpatterns = [
     path('newsletter', newsletter_view ,name='newsletter'),
     path('news/<str:news_id>', single_news ,name='news'),
     path('news/category/<str:cat_name>', index_view ,name='category'),
+    path('tag/<str:tag_name>', index_view ,name='tag'),
     path('author/<str:author>', index_view ,name='author'),
     path('search/', index_search, name='search'),
 
