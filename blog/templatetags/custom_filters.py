@@ -1,5 +1,5 @@
 from django import template
-from blog.models import Post,Comment
+from blog.models import Post,PostComment
 register = template.Library()
 from blog.models import Category
 from django.utils import timezone

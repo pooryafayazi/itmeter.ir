@@ -24,7 +24,7 @@ def index_view(request,**kwargs):
     news = Paginator(news,3)
 
     
-    #comments = Comment.objects.filter(approved=True)
+    comments = newsComment.objects.filter(approved=True).order_by('-created_date')
     
     try:        
         page_number = request.GET.get('page')
@@ -33,7 +33,7 @@ def index_view(request,**kwargs):
         news = news.get_page(1)
     except EmptyPage:
         news = news.get_page(1)
-    context = {'news': news}
+    context = {'news': news , 'comments' : comments}
     return render(request, 'home/index.html', context=context)
 
 

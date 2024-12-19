@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
-from .models import Post,Comment
+from .models import Post,PostComment
 from django.utils import timezone
-from blog.forms import CommentForm
+from blog.forms import PostCommentForm
 from django.http import HttpResponseRedirect
 from django.core.paginator import Paginator,PageNotAnInteger,EmptyPage
 # Create your views here.
@@ -23,7 +23,7 @@ def blog_view(request,**kwargs):
     posts = Paginator(posts,3)
 
     
-    #comments = Comment.objects.filter(approved=True)
+    comments = PostComment.objects.filter(approved=True).order_by('-created_date')
     
     try:        
         page_number = request.GET.get('page')
@@ -32,7 +32,7 @@ def blog_view(request,**kwargs):
         posts = posts.get_page(1)
     except EmptyPage:
         posts = posts.get_page(1)
-    context = {'posts': posts}
+    context = {'posts': posts, 'comments' : comments}
     return render(request, 'blog/blog.html', context=context)
 
 def single_view(request, post_id):
@@ -44,9 +44,9 @@ def single_view(request, post_id):
     current_index = list(all_posts).index(current_post)
     previous_post = all_posts[current_index - 1] if current_index > 0 else None
     next_post = all_posts[current_index + 1] if current_index < len(all_posts) - 1 else None
-    comments = Comment.objects.filter(post_id =current_post.id,approved=True)
+    comments = PostComment.objects.filter(post_id =current_post.id,approved=True)
 
-    form = CommentForm()
+    form = PostCommentForm()
     context = {
         'current_post': current_post,
         'previous_post': previous_post,
