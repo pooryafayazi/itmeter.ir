@@ -103,7 +103,7 @@
                                                 class="list-group-item list-group-item-action flex-column align-items-start">
                                                 <div class="w-100 justify-content-between">
                                                     <img src="{{ next_post.image.url }}" alt="" class="img-fluid float-left">
-                                                    <h5 class="mb-1">{{ next_post.title|truncate_w:8 }}</h5>
+                                                    <h5 class="mb-1">{{ next_post.title|truncate_w:8|safe }}</h5>
                                                     <small>Next Post</small>
                                                 </div>
                                             </a>                                        
