@@ -1,23 +1,35 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib import messages
 # Create your views here.
-from django.contrib.auth import authenticate, login
-
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import AuthenticationForm
 
 def login_view(request):
-    if request.method == 'POST':
-        username = request.POST["username"]
-        password = request.POST["password"]
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('/')
+    if not request.user.is_authenticated:
+        if request.method == 'POST':
+            username_or_email = request.POST.get('username_or_email')
+            password = request.POST.get('password')
+            try:
+                user = User.objects.get(username=username_or_email)
+            except User.DoesNotExist:
+                try:
+                    user = User.objects.get(email=username_or_email)
+                except User.DoesNotExist:
+                    user = None
 
+            if user is not None:
+                login(request, user)
+                messages.success(request, 'You have successfully logged in.')
+                return redirect('/')
+            else:
+                messages.error(request, 'Invalid username or password.')
+        form = AuthenticationForm()
+        context = {'form': form}
+        return render(request, 'accounts/login.html', context)
 
-
-    if not request.user.is_authenticated:      
-
-        return render(request, 'accounts/login.html')
+    else:
+        return redirect('/')
 
 
 #def logout_view(request):
