@@ -16,17 +16,6 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-m1hv0h=7j5+3h^56anw^*lii805h+t%l*)7v#ch5b_11p1l$#-'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -92,8 +81,7 @@ SUMMERNOTE_CONFIG = {
 }
 
 
-# sites framework
-SITE_ID = 2
+
 
 
 # robots
@@ -146,16 +134,7 @@ DATABASES = {
     }
 }'''
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME" : "itmeter",
-        "USER" : "root",
-        "PASSWORD" : "",
-        "HOST" : "localhost",
-        "PORT" : "",        
-    }
-}
+
 
 
 # Password validation
@@ -193,14 +172,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'static'
 
 MEDIA_URL = 'media/'
-MEDIA_ROOT = BASE_DIR / 'media'
 
-STATICFILES_DIRS = [
-    BASE_DIR / "statics",
-]
+
 
 
 # Default primary key field type
@@ -212,7 +187,7 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
-X_FRAME_OPTIONS = "SAMEORIGIN"
+
 
 
 # STMP config form email settings
