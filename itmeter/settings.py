@@ -49,7 +49,8 @@ INSTALLED_APPS = [
 
     'django_extensions',
     'homepage',
-    'blog',    
+    'blog',
+    'accounts',    
 ]
 
 # captch admin setting
