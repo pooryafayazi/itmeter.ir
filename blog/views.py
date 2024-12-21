@@ -22,8 +22,8 @@ def blog_view(request,**kwargs):
     if kwargs.get('tag_name') is not None:
     #if tag_name:
         posts = posts.filter(tags__name=kwargs['tag_name'])
-    posts = Paginator(posts,3)
-
+    posts = Paginator(posts,4)
+ 
     
     comments = PostComment.objects.filter(approved=True).order_by('-created_date')
     

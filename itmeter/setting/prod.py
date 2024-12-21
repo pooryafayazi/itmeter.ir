@@ -7,7 +7,7 @@ from itmeter.settings import *
 SECRET_KEY = 'django-insecure-&82z_0+)t(u*g0sl9x_%ka#_jl3_1hilg@m(##xw33i&)x-_lu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -17,13 +17,29 @@ ALLOWED_HOSTS = []
 # sites framwork
 SITE_ID = 2
 
-
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+}'''
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME" : "itmeter",
+        "USER" : "root",
+        "PASSWORD" : "",
+        "HOST" : "localhost",
+        "PORT" : "",        
+    }
 }
+
+
+
+
+
+
 
 
 STATIC_ROOT = BASE_DIR / 'static'

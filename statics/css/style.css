@@ -1980,8 +1980,9 @@ taggit
 header news section
 **************************************************
 **************************************************/
+
 .first-slot .masonry-box.post-media {
-    width:748px ;
+    max-width:748px ;
     height:433px;
     overflow:hidden;
 }
@@ -1999,4 +2000,10 @@ header news section
     width:100%;
     height:100%;
     object-fit:cover;
+}
+
+
+
+.blog-meta.big-meta p, .blog-content p {
+    text-align: justify;
 }

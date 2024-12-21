@@ -5,13 +5,13 @@
         <div class="masonry-blog clearfix">
             {% for n in news %}
                 {% if forloop.counter == 1 %}
-                    <div class="first-slot">
+                    <div class="first-slot d-none d-md-block">
                         <div class="masonry-box post-media">
                             <img src="{{ n.image.url }}" alt="" class="img-fluid">
                             <div class="shadoweffect">
                                 <div class="shadow-desc">
                                     <div class="blog-meta">
-                                        <span class="bg-orange"><a href="blog.html" title="">{{n.topic}}</a></span>
+                                      <!--<span class="bg-orange"><a href="blog.html" title="">{{n.topic}}</a></span>-->
                                         <h4><a href="{% url 'homepage:news' news_id=n.id %}" title="">{{n.title}}</a></h4>
                                         <small><a href="{% url 'homepage:news' news_id=n.id %}" title="">{{n.published_date|date:"d D m Y"}}</a></small>
                                         <small><a href="author.html" title="">{{n.author}}</a></small>
@@ -28,7 +28,7 @@
                             <div class="shadoweffect">
                                 <div class="shadow-desc">
                                     <div class="blog-meta">
-                                        <span class="bg-orange"><a href="blog.html" title="">{{n.topic}}</a></span>
+                                    <!--<span class="bg-orange"><a href="blog.html" title="">{{n.topic}}</a></span>-->
                                         <h4><a href="{% url 'homepage:news' news_id=n.id %}" title="">{{n.title}}</a></h4>
                                         <small><a href="{% url 'homepage:news' news_id=n.id %}" title="">{{n.published_date|date:"d D m Y"}}</a></small>
                                         <small><a href="author.html" title="">{{n.author}}</a></small>

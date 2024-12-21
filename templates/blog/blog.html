@@ -61,29 +61,27 @@
                     <div class="blog-grid-system">
                         
                         <div class="row">
-
-                            {% for post in posts %}
-                            
-                            <div class="col-md-6">
-                                <div class="blog-box">
-                                    <div class="post-media">
-                                        <a href="{% url 'blog:single' post_id=post.id %}" title="">
-                                            <img src="{{ post.image.url }}" alt="" class="img-fluid">
-                                            <div class="hovereffect">
-                                                <span></span>
-                                            </div><!-- end hover -->
-                                        </a>
-                                    </div><!-- end media -->
-                                    <div class="blog-meta big-meta">
-                                        <span class="color-orange"><a href="blog.html" title="">{{post.topic}}</a></span>
-                                        <h4><a href="{% url 'blog:single' post_id=post.id %}" title="">{{post.title}}</a></h4>
-                                        <p>{{post.content|truncate_w:38|safe}}</p>
-                                        <small><a href="{% url 'blog:single' post_id=post.id %}" title="">{{post.published_date|date:'d D M Y'}}</a></small>
-                                        <small><a href="{% url 'blog:author' author_username=post.author.username %}" title="">{{post.author.get_full_name}}</a></small>
-                                        <small><a href="{% url 'blog:single' post_id=post.id %}" title=""><i class="fa fa-eye"></i> {{post.counted_views}} Views </a></small>
-                                    </div><!-- end meta -->
-                                </div><!-- end blog-box -->
-                            </div><!-- end col -->
+                            {% for post in posts %}                            
+                                <div class="col-md-6">
+                                    <div class="blog-box">
+                                        <div class="post-media">
+                                            <a href="{% url 'blog:single' post_id=post.id %}" title="">
+                                                <img src="{{ post.image.url }}" alt="" class="img-fluid">
+                                                <div class="hovereffect">
+                                                    <span></span>
+                                                </div><!-- end hover -->
+                                            </a>
+                                        </div><!-- end media -->
+                                        <div class="blog-meta big-meta">
+                                            <span class="color-orange"><a href="#" title="">{{post.topic}}</a></span>
+                                            <h4><a href="{% url 'blog:single' post_id=post.id %}" title="">{{post.title}}</a></h4>
+                                            <p>{{post.content|truncate_w:38|safe}}</p>
+                                            <small><a href="{% url 'blog:single' post_id=post.id %}" title="">{{post.published_date|date:'d D M Y'}}</a></small>
+                                            <small><a href="{% url 'blog:author' author_username=post.author.username %}" title="">{{post.author.get_full_name}}</a></small>
+                                            <small><a href="{% url 'blog:single' post_id=post.id %}" title=""><i class="fa fa-eye"></i> {{post.counted_views}} Views </a></small>
+                                        </div><!-- end meta -->
+                                    </div><!-- end blog-box -->
+                                </div><!-- end col -->
                             {% endfor %}
                         </div><!-- end row -->
                         
